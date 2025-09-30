@@ -1,24 +1,17 @@
 public class Solution {
     public int RemoveElement(int[] nums, int val) {
-        int k = 0, next = nums.Length - 1;
-        for (int i = 0; i < nums.Length; i++)
+        int l = nums.Length;
+        int wp = 0;
+        int i = 0;
+        while (i < l)
         {
-            if (nums[i] == val)
+            if (nums[i] != val)
             {
-                while (next > 0)
-                {
-                    if (nums[next] != val)
-                    {
-                        nums[i] = nums[next];
-                        next--;
-                        break;
-                    }
-                    next--;
-                }
+                nums[wp] = nums[i];
+                wp++;
             }
-            else
-                k++;
+            i++;
         }
-        return k;
+        return wp;
     }
 }
